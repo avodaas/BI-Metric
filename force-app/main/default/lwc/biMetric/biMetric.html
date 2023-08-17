@@ -1,0 +1,135 @@
+<template>
+		<!-- Page Header-->
+		<div class="slds-page-header forceListViewManagerHeader">
+			<div class="slds-page-header__row">
+				<div class="slds-page-header__col-title">
+				<div class="slds-media">
+					<div class="slds-media__figure">
+					<span class="slds-icon_container">
+						<lightning-icon icon-name="utility:metrics" alternative-text="BI Metrics"></lightning-icon>
+					</span>
+					</div>
+					<div class="slds-media__body">
+					<div class="slds-page-header__name">
+						<div class="slds-page-header__name-title">
+						<h1>
+							<span>BI Metrics MDT</span>
+							<span class="slds-page-header__title slds-truncate" title="Recently Viewed">All BI Metrics</span>
+						</h1>
+						</div>
+					</div>
+					</div>
+				</div>
+				</div>
+				<div class="slds-page-header__col-actions">
+				<div class="slds-page-header__controls">
+					<div class="slds-page-header__control">
+						<button class="slds-button slds-button_neutral" onclick={addMetricField}>New</button>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="slds-page-header__row">
+				<div class="slds-page-header__col-meta">
+				<p class="slds-page-header__meta-text">{records.length} records out of {totalRecordCount}</p>
+				</div>
+				<div class="slds-page-header__col-controls">
+				<div class="slds-page-header__controls">
+					<!-- Search records input -->
+					<div class="slds-page-header__control">
+					<div class="slds-dropdown-trigger slds-dropdown-trigger_click">
+						<lightning-input type="search" 
+										 variant="label-hidden" 
+										 label="Search" 
+										 value={searchKey} 
+										 placeholder={placeholder} 
+										 onchange={handleSearchChange}
+										>
+						</lightning-input>
+					</div>
+					</div>
+					<!-- Refresh button -->
+					<div class="slds-page-header__control">
+					<button class="slds-button slds-button_icon slds-button_icon-border-filled" title="Refresh" onclick={refreshTable}>   
+						<lightning-icon icon-name="utility:refresh" alternative-text="refresh" size="xx-small"></lightning-icon>
+						<span class="slds-assistive-text">Refresh</span>
+					</button>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Datatable -->
+		<lightning-datatable
+				data={records}
+				data-id="datatable"
+				columns={columns}
+				key-field="Id"
+				onsave={handleSave}
+				draft-values={draftValues}
+				show-row-number-column="false"
+				hide-checkbox-column="true"
+				sorted-by={sortBy}
+				sorted-direction={sortDirection}
+				enable-infinite-loading="true"
+				onloadmore={loadMoreData}
+				onsort={handleSortdata}
+				onrowaction={handleRowAction}>
+		</lightning-datatable>
+
+		<lightning-spinner alternative-text="Performing action, please wait..." if:true={spinner}></lightning-spinner>
+		<p class="slds-align_absolute-center slds-p-top_large">{loadingStatus}</p>
+		
+		<template if:true={openCreateMetricModal}>
+				<div class="slds-modal slds-fade-in-open slds-backdrop">
+					<div class="slds-modal__container">
+						<!------HEADER Section-->
+						<div class="slds-modal__header">
+							<lightning-button-icon icon-name="utility:close" alternative-text="Close this window" size="large"
+								variant="bare-inverse" onclick={handleCancel} class="slds-modal__close">
+							</lightning-button-icon>
+							<h1 if:true={isInsert}>Add Metric Field</h1>
+							<h1 if:false={isInsert}>Edit Metric Field</h1>
+						</div>
+						<!------Body Section-->
+						<div class="slds-modal__content slds-p-around_medium">
+							<lightning-input label="Label"
+											 name="MasterLabel" 
+											 type="text" 
+											 required
+											 value={masterLabel} 
+											 class="slds-m-bottom_small"
+											 onchange={handleMasterNameChange}>
+							</lightning-input>
+							<lightning-combobox name="ObjectName"
+												label="Object"
+												value={objectName}
+												options={objectsOptions}
+												onchange={handleObjectNameChange}
+												class="slds-m-bottom_small"
+												required>
+							</lightning-combobox>
+							<c-avodaas-autocomplete-search search-label="Field"
+												   is-required="true"
+												   selected-name={fieldName}
+												   options={fieldOptions}
+												   search-field="Name"
+												   oninputchanged={setSaveVisibility}
+												   onlookupselect={handleFieldNameChange}>
+							</c-avodaas-autocomplete-search> 
+							<lightning-input type="checkbox" name="Active__c" label="Active" checked={isActive} class="slds-p-top_large" onchange={handleIsActiveChange}></lightning-input>
+						</div>
+						<!--Footer Section-->
+						<div class="slds-modal__footer">
+							<lightning-button-group>
+								<lightning-button icon-name="utility:close" label="Cancel" onclick={handleCancel}></lightning-button>
+								<lightning-button if:true={isInsert} disabled={disableSave} label="Create Metric Field" icon-name="utility:save" variant="brand" onclick={handleAddMetric}></lightning-button>
+								<lightning-button if:false={isInsert} disabled={disableSave} label="Edit Metric Field" icon-name="utility:save" variant="brand" onclick={handleEditMetric}></lightning-button>
+						</lightning-button-group>
+						</div>
+					</div>
+				</div>
+		</template>
+
+</template>

@@ -7,7 +7,7 @@
  */
 global without sharing class Avodaas_Apx {
     //========== Static Variables =========//
-    public static final String ADMIN_REPLYTO_EMAIL = 'fusion-admin@avodaas.com';
+    public static final String ADMIN_REPLYTO_EMAIL = 'saas-package-admin@avodaas.com';
     public static final String ADMIN_SENDER_DISPLAYNAME = 'The orgname';
 
     public static final String MANAGEMENT_EMAIL = 'admin@theorg.com';
@@ -15,7 +15,7 @@ global without sharing class Avodaas_Apx {
     public static List<String> ADMIN_EMAILS{
         get{
             if(ADMIN_EMAILS == null){
-                ADMIN_EMAILS = new List<String>{'fusion-admin@avodaas.com'};
+                ADMIN_EMAILS = new List<String>{'saas-package-admin@avodaas.com'};
             }
             return ADMIN_EMAILS;
         }

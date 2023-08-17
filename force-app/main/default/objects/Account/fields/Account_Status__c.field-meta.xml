@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Status__c</fullName>
+    <description>Track status of individual accounts</description>
+    <externalId>false</externalId>
+    <label>Account Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+                <label>Prospect</label>
+            </value>
+            <value>
+                <fullName>Target</fullName>
+                <default>false</default>
+                <label>Target</label>
+            </value>
+            <value>
+                <fullName>In Pipeline</fullName>
+                <default>false</default>
+                <label>In Pipeline</label>
+            </value>
+            <value>
+                <fullName>Current Customer</fullName>
+                <default>false</default>
+                <label>Current Customer</label>
+            </value>
+            <value>
+                <fullName>Attrited Customer</fullName>
+                <default>false</default>
+                <label>Attrited Customer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
