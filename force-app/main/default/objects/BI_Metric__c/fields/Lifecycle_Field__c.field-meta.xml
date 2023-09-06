@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lifecycle_Field__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Field for which we are tracking changes</description>
+    <externalId>false</externalId>
+    <label>Lifecycle Field</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>StageName</fullName>
+                <default>false</default>
+                <label>StageName</label>
+            </value>
+            <value>
+                <fullName>Status</fullName>
+                <default>false</default>
+                <label>Status</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

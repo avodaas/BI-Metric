@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+
+	<types>
+        <members>Avodaas_Apx</members>
+		<members>Avodaas_Apx_Test</members>
+		<members>Avodaas_AccountModel_Test</members>
+		<members>Avodaas_AccountModel</members>
+        <members>Avodaas_ContactModel</members>
+        <members>UnsupportedObjectTypeException</members>
+		<members>BaseBIModel</members>
+        <members>BaseBIModel_Test</members>
+        <members>BiMetricController_Test</members>
+		<members>BiMetricController</members>
+        <members>BIMetricModel_Test</members> 
+        <members>BIMetricModel</members>
+        <members>BIMetricSortable_Test</members>
+        <members>BIMetricSortable</members>
+        <members>CaseBIModel</members>
+        <members>CaseBIModel_Test</members>
+        <!--<members>FieldSetField</members>-->
+        <members>LeadBIModel_Test</members>
+        <members>LeadBIModel</members>
+		<members>Avodaas_BaseModel</members>
+		<members>MdtUtil</members>
+		<members>MdtUtil_Test</members>
+        <members>QueueableBIMetric</members>
+		<members>TestBIModel</members>
+        <members>SmartFactory</members>
+        <members>SmartFactory_Test</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>Avodaas_Logs__c</members>
+        <members>BI_Metric__c</members>
+        <members>BI_Metric_Fields__mdt</members>
+        <members>Bi_Metric_Objects__mdt</members>
+		<name>CustomObject</name>
+	</types>
+
+	<types>
+		<members>BI_Metric_Permission_set</members>
+		<name>PermissionSet</name>
+	</types>
+	<types>
+         <!-- Avodaas_Logs__c-->
+		<members>Avodaas_Logs__c.Error_Message__c</members>
+		<members>Avodaas_Logs__c.Error_Type__c</members>
+		<members>Avodaas_Logs__c.Field_Name__c</members>
+		<members>Avodaas_Logs__c.Field_Type__c</members>
+		<members>Avodaas_Logs__c.File_Name__c</members>
+		<members>Avodaas_Logs__c.Line_Number__c</members>
+		<members>Avodaas_Logs__c.Object_Name__c</members>
+		<members>Avodaas_Logs__c.Record__c</members>
+		<members>Avodaas_Logs__c.Stack_Trace__c</members>
+		<members>Avodaas_Logs__c.User__c</members>
+
+         <!-- BI_Metric_Fields__mdt-->
+		<members>BI_Metric_Fields__mdt.Data_Type__c</members>
+        <members>BI_Metric_Fields__mdt.Active__c</members>
+        <members>BI_Metric_Fields__mdt.Field_Name__c</members>
+        <members>BI_Metric_Fields__mdt.Object_Name__c</members>
+
+        <!-- BI_Metric__c-->
+        <members>BI_Metric__c.Account__c</members>
+        <members>BI_Metric__c.Case__c</members>
+        <members>BI_Metric__c.Completed_Date__c</members>
+        <members>BI_Metric__c.Contact__c</members>
+        <members>BI_Metric__c.Days_in_Stage__c</members>
+        <members>BI_Metric__c.Lead__c</members>
+        <members>BI_Metric__c.Lifecycle_Field__c</members>
+        <members>BI_Metric__c.Lifecycle_Field__c</members>
+        <members>BI_Metric__c.New_Datetime__c</members>
+		<members>BI_Metric__c.New_Number__c</members>
+        <members>BI_Metric__c.New_Value__c</members>
+        <members>BI_Metric__c.Opportunity__c</members>
+        <members>BI_Metric__c.Owner_Alias__c</members>
+        <members>BI_Metric__c.Owner_Id__c</members>
+        <members>BI_Metric__c.Owner_Name__c</members>
+        <members>BI_Metric__c.Owner_Queue_Id__c</members>
+        <members>BI_Metric__c.Owner_Role__c</members>
+        <members>BI_Metric__c.Previous_Record__c</members>
+        <members>BI_Metric__c.Previous_Value__c</members>
+        <members>BI_Metric__c.Record_Id__c</members>
+        <members>BI_Metric__c.Start_Date__c</members>
+        <members>BI_Metric__c.Updating_User__c</members>
+
+         <!--Account -->
+         <members>Account.Account_Status__c</members>
+
+        <!--Opportunity -->
+        <members>Opportunity.Revenue_Recognition_Date__c</members>
+        <members>Opportunity.Sales_Qualified_Lead_Date__c</members>
+
+		<name>CustomField</name>
+	</types>
+    <types>
+        <members>BI_Metrics_MDT</members>
+        <name>CustomTab</name>
+    </types>
+
+    <types>
+        <members>avodaasLookUpItem</members>
+        <members>avodaasAutocompleteSearch</members>
+        <members>biMetric</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+
+	<types>
+		<members>Avodaas_AccountTrigger</members>
+		<members>Avodaas_ContactTrigger</members>
+        <members>BIMetricTrigger</members>
+        <members>CaseBITrigger</members>
+        <members>LeadBITrigger</members>
+		<name>ApexTrigger</name>
+	</types>
+
+    <types>
+		<members>BI_Metric_Fields.Account_Owner</members>
+		<members>BI_Metric_Fields.Account_Status</members>
+        <members>BI_Metric_Fields.Case_Owner</members>
+        <members>BI_Metric_Fields.Case_Status</members>
+        <members>BI_Metric_Fields.Event_Owner</members>
+        <members>BI_Metric_Fields.Lead_Owner</members>
+        <members>BI_Metric_Fields.Lead_Status</members>
+        <members>BI_Metric_Fields.Opportunity_Owner</members>
+        <members>BI_Metric_Fields.Opportunity_Stage</members>
+        <members>BI_Metric_Fields.Task_Owner</members>
+        <members>BI_Metric_Fields.Task_Status</members>
+        <members>Bi_Metric_Objects.Account</members>
+        <members>Bi_Metric_Objects.Contact</members>
+        <members>Bi_Metric_Objects.Case</members>
+        <members>Bi_Metric_Objects.Lead</members>
+        <members>Bi_Metric_Objects.Opportunity</members>
+		<name>CustomMetadata</name>
+	</types>
+
+    
+	<version>52.0</version>
+</Package> 

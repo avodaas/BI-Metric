@@ -1,0 +1,26 @@
+<template>
+	<div class="slds-form-element">
+		<div class="slds-form-element__control">
+			<div class="slds-combobox_container">
+				<div id="box" class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-has-focus slds-is-open" aria-expanded="true" aria-haspopup="listbox" role="combobox">
+					<div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+						<lightning-input class="" type=Search value={selectedName} minlength="1" onchange={inputChanged} disabled={searchdisabled} onkeyup={handleKeyChange} required ={isRequired} label={searchLabel}></lightning-input>
+					</div>
+					<template if:true={showoptions}>
+						<template if:true={records}>
+							<div id="listbox-id-1" class="slds-dropdown slds-dropdown_fluid" role="listbox">
+								<ul class="slds-listbox slds-listbox_vertical" role="presentation">
+									<template for:each={records} for:item="record">
+										<template if:true={record}>
+											<c-avodaas-look-up-item key={record.value} record={record} onlookupselect={handlelookupselect}></c-avodaas-look-up-item>
+										</template>
+									</template>
+								</ul>
+							</div>
+						</template>
+					</template>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
